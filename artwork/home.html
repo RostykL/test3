@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="./header.css">
+    <title>Home</title>
+
+    <style>
+        #move-up {
+            position: sticky;
+            top: 100%;
+            left: 32px;
+            text-decoration: none;
+            color: white;
+            background: black;
+            padding: 8px 16px;
+            border-radius: 4px;
+        }
+    </style>
+
+</head>
+<body>
+        <a href="#" id="move-up">Нагору</a>
+
+        <header class="header">
+            <ul>
+                <a href="./home.html">
+                    <li>Головна</li>
+                </a>
+
+                <a href="./form.html">
+                    <li>Співпраця</li>
+                </a>
+
+                <a href="./about-us.html">
+                    <li>Про Сайт</li>
+                </a>
+
+                <a href="./admin.html" id="signed-as-admin">
+                    <li>Увійти як Адмін</li>
+                </a>
+            </ul>
+        </header>
+
+        <main>
+                <div class="artworks-list"></div>
+        </main>
+
+        <script>
+            const isAdmin = localStorage.getItem('loggedIn') === 'true';
+
+            const getAdminLink = document.querySelector('#signed-as-admin')
+
+            if(isAdmin) {
+                getAdminLink.textContent = 'Права Адміна'
+                getAdminLink.setAttribute('href', '')
+            }
+
+
+            const artworks = [
+                {
+                    title: "Назва роботи 1",
+                    description: "Опис: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, velit.",
+                    author: "Агель",
+                    artType: "модернізм",
+                    imageSrc: "../src/assets/queen.jpg",
+                    authorLink: null,
+                },
+                {
+                    title: "Назва роботи 2",
+                    description: "Опис: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, velit.",
+                    author: "Агель",
+                    artType: "абстракція",
+                    imageSrc: "../src/assets/agel.jpg",
+                    authorLink: null,
+                },
+
+                {
+                    title: "Назва роботи 3",
+                    description: "Опис: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, velit.",
+                    author: "Агель",
+                    artType: "абстракція",
+                    imageSrc: "../src/assets/happy_birthday.jpg",
+                    authorLink: null,
+                },
+                {
+                    title: "Abstract Robotic Human Portrait, Vector Illustration Art",
+                    description: "Robots are a big part of our future, and we humans will be even brighter.",
+                    author: "Mark Rise",
+                    artType: "Vector Illustration Art",
+                    imageSrc: "../src/assets/dribble1.jpg",
+                    authorLink: "https://dribbble.com/gigantic_click"
+                },
+                {
+                    title: "Renaissance",
+                    description: "NFT art open call Artcrush.",
+                    author: "Angie Mathot",
+                    artType: "Vector Illustration Art",
+                    imageSrc: "../src/assets/dribble2.jpg",
+                    authorLink: "https://dribbble.com/designbyangie"
+                }
+            ];
+
+            const artworksList = document.querySelector('.artworks-list');
+
+
+            artworks.forEach(function(artwork) {
+                const artworkHtml = `
+                <div class="artwork">
+                    <div style="position: relative;">
+                        <img class="preview" src="${artwork.imageSrc}" alt="">
+                        <button class="like-button" data-likes="0">likes: 0</button>
+                    </div>
+                    <div class="details-wrapper">
+                        <div class="info">
+                            <h1 class="title">${artwork.title}</h1>
+                            <p class="description">${artwork.description}</p>
+                            ${artwork.authorLink ? `<div class="author"><b>Автор</b>: <a href='${artwork.authorLink}' target="_blank">${artwork.author}</a></div>` : `<div class="author"><b>Автор</b>: ${artwork.author}</div>`}
+                            <div class="art-type"><b>Тип</b>: ${artwork.artType}</div>
+                            <div class="action-buttons">
+                                <a class="like-btn" href="./form.html">
+                                    Найняти
+                                </a>
+                                 ${isAdmin ? `<a class="like-btn" href="#" onclick="deleteArtwork(this)">Видалити</a>` : ''}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+                artworksList.innerHTML += artworkHtml;
+            });
+
+
+            const likeButtons = document.querySelectorAll('.like-button');
+            likeButtons.forEach(function(likeButton) {
+                likeButton.addEventListener('click', function(e) {
+                    e.preventDefault()
+                    let likes = parseInt(this.getAttribute('data-likes'));
+                    if (this.classList.contains('liked')) {
+                        likes -= 1;
+                        this.classList.remove('liked');
+                    } else {
+                        likes += 1;
+                        this.classList.add('liked');
+                    }
+                    this.setAttribute('data-likes', likes);
+                    this.textContent = 'likes: ' + likes;
+                });
+            });
+
+            function deleteArtwork(button) {
+                const artworkDiv = button.closest('.artwork');
+                artworkDiv.remove();
+            }
+
+        </script>
+</body>
+</html>

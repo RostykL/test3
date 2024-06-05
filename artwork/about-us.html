@@ -1,0 +1,132 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./header.css">
+    <title>Про Нас</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        main {
+            margin: 80px auto;
+            max-width: 1200px;
+            background: aliceblue;
+        }
+
+        .rules, .forbidden {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 16px;
+            padding: 32px;
+        }
+
+        .forbidden-roles {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-left: 16px;
+        }
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <ul>
+        <a href="./home.html">
+            <li>Головна</li>
+        </a>
+
+        <a href="./form.html">
+            <li>Співпраця</li>
+        </a>
+
+        <a href="./about-us.html">
+            <li>Про Сайт</li>
+        </a>
+    </ul>
+</header>
+
+    <main>
+
+        <div class="rules">
+
+            <h1>Правила користування</h1>
+
+            <table>
+                <tr>
+                    <th>Зміст</th>
+                    <th>Пояснення</th>
+                </tr>
+                <tr>
+                    <td>Реєстрація</td>
+                    <td>Реєстрація на сайті є обов'язковою для того, щоб користуватися послугами, такими як перегляд, замовлення або викладення робіт.</td>
+                </tr>
+                <tr>
+                    <td>Перегляд та замовлення</td>
+                    <td>Користувачі мають право переглядати роботи інших користувачів, вподобати їх та робити замовлення на створення аналогічних робіт або робіт на замовлення.</td>
+                </tr>
+                <tr>
+                    <td>Контакт</td>
+                    <td>Усі спілкування, пов'язані з процесом замовлення, повинні відбуватися через вбудовану систему повідомлень на сайті.</td>
+                </tr>
+                <tr>
+                    <td>Відмова у виконанні</td>
+                    <td>Автори мають право відмовити у виконанні замовлення без обґрунтування.</td>
+                </tr>
+                <tr>
+                    <td>Комісія сайту</td>
+                    <td>Комісія сайту включається до вартості кожного замовлення і визначається заздалегідь.</td>
+                </tr>
+                <tr>
+                    <td>Авторські права</td>
+                    <td>Користувачі зобов'язані поважати авторські права на роботи, які знаходяться на сайті, і не використовувати їх без дозволу автора.</td>
+                </tr>
+                <tr>
+                    <td>Відповідальність сайту</td>
+                    <td>Сайт не несе відповідальності за порушення авторських прав, але залишає за собою право видаляти або заблоковувати користувачів, які порушують ці правила.</td>
+                </tr>
+            </table>
+
+        </div>
+
+        <div class="forbidden">
+            <h1>Заборони на сайті:</h1>
+            <ol class="forbidden-roles">
+                <li>Публікація робіт з порушенням авторських прав.</li>
+                <li>Надання неправдивої інформації про роботу або автора.</li>
+                <li>Неповага до інших користувачів у коментарях та повідомленнях.</li>
+                <li>Спроби обхіду системи комісій, встановлених для оплати послуг.</li>
+                <li>Публікація образливого або непристойного контенту.</li>
+                <li>Використання сайту для розміщення нелегальних пропозицій або послуг.</li>
+                <li>Спам або надмірна реклама.</li>
+                <li>Створення багатоакаунтів для ухилення від обмежень або оплати комісій.</li>
+            </ol>
+        </div>
+
+    </main>
+
+</body>
+</html>

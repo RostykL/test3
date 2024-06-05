@@ -1,0 +1,44 @@
+.header {
+    font-family: Arial, serif;
+    left: 0;
+    margin: 0 auto;
+    position: fixed;
+    right: 0;
+    top: 16px;
+    z-index: 10;
+    width: 1200px;
+
+    ul {
+        margin-top: 0;
+        background-color: aliceblue;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 8px;
+        padding: 16px 32px;
+        display: flex;
+
+        a[href="./home.html"] {
+            font-weight: bold;
+        }
+
+        a:not(:first-child) {
+            margin-left: 32px;
+        }
+
+        a {
+            float: left;
+            color: black;
+            text-decoration: none;
+            position: relative;
+
+            & > li:hover::before {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background-color: black;
+            }
+        }
+    }
+}

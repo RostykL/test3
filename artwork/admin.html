@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./header.css">
+    <title>Admin Login</title>
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        main {
+            margin: 80px auto;
+            max-width: 1200px;
+            background: aliceblue;
+        }
+
+    </style>
+</head>
+<body>
+    <script>
+        window.onload = function() {
+            const loggedIn = localStorage.getItem('loggedIn');
+            if (loggedIn === 'true') {
+                window.location.href = 'home.html';
+            }
+        };
+    </script>
+
+    <header class="header">
+        <ul>
+            <a href="./home.html">
+                <li>Головна</li>
+            </a>
+
+            <a href="./form.html">
+                <li>Співпраця</li>
+            </a>
+
+            <a href="./about-us.html">
+                <li>Про Сайт</li>
+            </a>
+        </ul>
+    </header>
+
+    <main>
+        <h2>Увійдіть</h2>
+        <form id="loginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <input type="submit" value="Login">
+        </form>
+    </main>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === 'admin' && password === 'adminadmin') {
+                localStorage.setItem('loggedIn', 'true');
+                window.location.href = 'home.html';
+            } else {
+                alert('Неправильний логін або пароль для адміна.');
+            }
+        });
+    </script>
+
+</body>
+</html>

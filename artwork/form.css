@@ -1,0 +1,15 @@
+.submit-form-wrapper {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    & > div {
+        display: flex;
+        gap: 8px;
+    }
+}
+
+input:invalid, select:invalid, textarea:invalid {
+    border: 2px solid red;
+}
